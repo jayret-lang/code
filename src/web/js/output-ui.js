@@ -1,7 +1,7 @@
 ({
   requires: [
     { "import-type": "builtin",
-      name: "parse-pyret" },
+      name: "parse-java" },
     { "import-type": "builtin",
       name: "error-display" },
     { "import-type": "builtin",

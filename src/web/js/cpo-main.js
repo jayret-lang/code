@@ -33,7 +33,7 @@
       args: ["./text-handlers"]
     },
     { "import-type": "builtin",
-      name: "parse-pyret"
+      name: "parse-java"
     },
     { "import-type": "builtin",
       name: "runtime-lib"

@@ -27,7 +27,7 @@
     },
     {
       "import-type": "builtin",
-      name: "parse-pyret"
+      name: "parse-java"
     }
   ],
   nativeRequires: [
