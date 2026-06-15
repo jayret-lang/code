@@ -305,10 +305,16 @@ function makeEvents(config) {
     }
   }
 
+  // Default editor contents. `use context starter2024` is a Pyret
+  // surface directive that Jayret's parser (parse-java) does not
+  // recognise — leaving it in produced a parse error on every fresh
+  // playground session. The Pyret compiler applies a sensible default
+  // context when no `use` line is present, so we just start with a
+  // short Jayret welcome example.
   const initialState = {
-    editorContents: "use context starter2024\n\n",
+    editorContents: '// Welcome to Jayret\nprint("Ahoy, Jayret!");\n',
     interactionsSinceLastRun: [],
-    definitionsAtLastRun: "use context starter2024\n\n",
+    definitionsAtLastRun: '// Welcome to Jayret\nprint("Ahoy, Jayret!");\n',
     replContents: ""
   };
 
