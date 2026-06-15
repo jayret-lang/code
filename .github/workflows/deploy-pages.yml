@@ -43,29 +43,21 @@ jobs:
           make link-pyret
           make web-local
 
-      - name: Assemble site (landing at /, IDE under /code/)
-        run: |
-          set -euo pipefail
-          rm -rf _site
-          mkdir -p _site/code
-
-          # Move the CPO build under /code/. The editor.embed.html is the
-          # standalone, pre-rendered entry point (BASE_URL=".", embedded
-          # fetch server, etc.); rename it to index.html so /code/ serves
-          # the IDE directly.
-          cp -r build/web/. _site/code/
-          cp _site/code/editor.embed.html _site/code/index.html
-
-          # Landing page at the org-page root.
-          cp -r landing/. _site/
+      - name: Promote editor.embed.html to index.html
+        # editor.embed.html is the standalone, pre-rendered entry point
+        # (BASE_URL=".", embedded fetch server, etc.) — see .env.embed.
+        # Pages serves this repo as a project page at
+        # `https://jayret-lang.github.io/code/`, so its directory index
+        # is the file at the root of build/web/.
+        run: cp build/web/editor.embed.html build/web/index.html
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload _site as Pages artifact
+      - name: Upload build/web as Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: build/web
 
   deploy:
     needs: build
