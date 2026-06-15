@@ -255,7 +255,13 @@ window.CPO = {
   documents : new Documents()
 };
 $(function() {
-  const CONTEXT_FOR_NEW_FILES = "use context starter2024\n";
+  // Default editor contents for a brand-new file. Upstream Pyret used
+  // `use context starter2024\n` here, but Jayret's parse-java does not
+  // accept that directive — parsing it as Jayret produces a parse
+  // error on the first line. Pyret's compiler picks a sensible
+  // default context when no `use` line is present, so we just seed
+  // a short Jayret comment instead.
+  const CONTEXT_FOR_NEW_FILES = "// Welcome to Jayret\nprint(\"Ahoy, Jayret!\");\n";
   const CONTEXT_PREFIX = /^use context\s+/;
 
   function merge(obj, extension) {
