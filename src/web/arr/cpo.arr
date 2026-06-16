@@ -144,7 +144,10 @@ fun ast-locator(uri :: String, a :: A.Program):
     method get-options(self, options): options end,
     method get-module(self): CL.pyret-ast(a) end,
     method get-native-modules(self): [list:] end,
-    method get-dependencies(self): CL.get-standard-dependencies(self.get-module(), uri) end,
+    method get-dependencies(self):
+      CL.get-dependencies(self.get-module(), uri) +
+      playground-extra-imports.imports.map(_.dependency)
+    end,
     method get-extra-imports(self): playground-extra-imports end,
     method get-globals(self): CS.standard-globals end,
     method uri(self): uri end,
