@@ -1,6 +1,13 @@
 [![Build Status](https://travis-ci.org/brownplt/code.pyret.org.svg)](https://travis-ci.org/brownplt/code.pyret.org)
 
-# code.pyret.org
+# code.jayret.org
+
+> **Notice.** This is an independent derivative of
+> [code.pyret.org](https://github.com/brownplt/code.pyret.org), originally by
+> Joe Gibbs Politz and others, used under the Apache License 2.0.
+> It is **not affiliated with, endorsed by, or sponsored by**
+> the Pyret project, Brown PLT, or the original authors.
+> See [`NOTICE`](./NOTICE) for full attribution.
 
 ## Simple Configuration
 
