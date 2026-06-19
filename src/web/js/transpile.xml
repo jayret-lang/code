@@ -748,16 +748,16 @@ else:
                         </block>
                     </script>
                 </block-definition>
-                <block-definition category="Tables" s="load-table from %'sheet' tab of %'spreadsheet' $nl naming columns: %'columns'" type="reporter">
+                <block-definition category="Tables" s="load-table from %'sheet' tab of %'spreadsheet' $nl with columns: %'columns'" type="reporter">
                     <header/>
-                    <code>load-table: &lt;#3&gt;
-              source: &lt;#2&gt;.sheet-by-name(&lt;#1&gt;, true)
-            end</code>
+                    <code>loadTable(&lt;#3&gt;)
+  .source(&lt;#2&gt;.sheet-by-name(&lt;#1&gt;, true))
+  .load()</code>
                     <translations/>
                     <inputs>
                         <input type="%s"/>
                         <input type="%s"/>
-                        <input type="%mult%upvar"/>
+                        <input type="%txt">["col1", "col2"]</input>
                     </inputs>
                     <script>
                         <block s="doReport">
