@@ -22,6 +22,7 @@ NODE_MODULE = $(shell node -e "console.log(require('node:path').dirname(require.
 # other paths in them
 CM=$(call NODE_MODULE,codemirror)/..
 PYRET_MODE=$(call NODE_MODULE,pyret-codemirror-mode)/..
+JAYRET_MODE=lib/jayret-codemirror-mode
 PYRET=$(call NODE_MODULE,pyret-lang)/../..
 
 CPOMAIN=build/web/js/cpo-main.jarr
@@ -243,6 +244,9 @@ build/web/js/jump-to-line.js: $(CM)/addon/search/jump-to-line.js
 build/web/js/pyret-mode.js: $(PYRET_MODE)/mode/pyret.js
 	cp $< $@
 
+build/web/js/jayret-mode.js: $(JAYRET_MODE)/jayret.js
+	cp $< $@
+
 build/web/js/mousetrap.min.js: $(call NODE_MODULE,mousetrap)/mousetrap.min.js
 	cp $< $@
 
@@ -256,6 +260,7 @@ MISC_JS = build/web/js/q.js \
 	   build/web/js/rulers.js \
 	   build/web/js/mark-selection.js \
 	   build/web/js/pyret-mode.js \
+	   build/web/js/jayret-mode.js \
 	   build/web/js/s-expression-lib.js \
 	   build/web/js/seedrandom.js \
 	   build/web/js/source-map.js \
@@ -296,6 +301,7 @@ EDITOR_MISC_JS = build/web/js/q.js \
 		  build/web/js/mark-selection.js \
 		  build/web/js/runmode.js \
 		  build/web/js/pyret-mode.js \
+		  build/web/js/jayret-mode.js \
 		  build/web/js/pyret-fold.js \
 		  build/web/js/matchkw.js \
 		  build/web/js/mousetrap.min.js \

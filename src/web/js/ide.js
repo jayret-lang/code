@@ -417,7 +417,7 @@ init({
   rootEl: appDiv,
   baseUrl: '/ide',
   codemirrorOptions: {
-    mode: 'pyret',
+    mode: 'jayret',
   },
   runtimeApiLoader() {
     return new Promise((resolve, reject) => {
